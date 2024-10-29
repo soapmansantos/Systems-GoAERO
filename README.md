@@ -1,5 +1,5 @@
 # systems-GoAERO
-Code &amp; files for the Systems sub-team of the ICAV ER Tech team, participating in the GoAERO challenge.
+Systems sub-team of the ICAV ER Tech team, participating in the GoAERO challenge.
 
 Manages:
   - Electronics & Power/Propulsion
