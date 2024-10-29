@@ -18,7 +18,7 @@ import os
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
@@ -86,16 +86,25 @@ def generate_launch_description():
             )
         ),
 
-        Node(
-            package='joy',
-            executable='joy_node',
-            name='joy',
-            namespace=model_ns,
-            output='screen',
-        ),
+        ExecuteProcess(
+            cmd=['ros2', 'topic', 'pub', '/simple_drone/takeoff', 'std_msgs/msg/Empty', '{}','--once'],
+            shell=True,
+            output="screen"
+        )
 
-        OpaqueFunction(
-            function=get_teleop_controller,
-            kwargs={'model_ns': model_ns},
-        ),
+
+        # Node(
+        #     package='joy',
+        #     executable='joy_node',
+        #     name='joy',
+        #     namespace=model_ns,
+        #     output='screen',
+        # ),
+
+        # OpaqueFunction(
+        #     function=get_teleop_controller,
+        #     kwargs={'model_ns': model_ns},
+        # )
+
     ])
+ 
