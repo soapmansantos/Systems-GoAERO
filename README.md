@@ -6,3 +6,5 @@ Manages:
   - Autonomous Navigation
   - Aircraft Stabilization
   - Adversity take-off & landing (incl. landing gear)
+
+(DRL training setup under ros2 branch, /controller/scripts/DQN_control.py)
